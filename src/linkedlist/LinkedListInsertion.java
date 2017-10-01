@@ -1,6 +1,6 @@
 package linkedlist;
 
-public class LinkedListInsertFront {
+public class LinkedListInsertion {
 
 	Node head;
 	
@@ -13,7 +13,7 @@ public class LinkedListInsertFront {
 		}
 	}
 	
-	public void traverse(Node head){
+	public void traverse(){
 		Node temp = head;
 		while(temp != null){
 			System.out.println(temp.data);
@@ -21,7 +21,7 @@ public class LinkedListInsertFront {
 		}
 	}
 	
-	public Node insertAtFront(int data, Node head){
+	public Node insertAtFront(int data){
 		Node temp = new Node(data);
 		temp.next = head;
 		return temp;
@@ -37,9 +37,14 @@ public class LinkedListInsertFront {
 		prev_node.next = temp; 
 	}
 	
-	public void insertAtEnd(int data, Node head){
+	public void insertAtEnd(int data){
 		Node temp = head;
 		Node new_node = new Node(data);
+		
+		if(head == null){
+			head = temp;
+			return;
+		}
 		
 		while(temp.next != null){
 			temp = temp.next;
@@ -48,7 +53,7 @@ public class LinkedListInsertFront {
 	}
 	
 	public static void main(String[] args) {
-		LinkedListInsertFront l_list = new LinkedListInsertFront();
+		LinkedListInsertion l_list = new LinkedListInsertion();
 		l_list.head = new Node(10);
 		Node second = new Node(20);
 		Node third = new Node(30);
@@ -57,22 +62,22 @@ public class LinkedListInsertFront {
 		second.next = third;
 		
 		System.out.println("Linkedlist before inserting element at front");
-		l_list.traverse(l_list.head);
-		l_list.head = l_list.insertAtFront(5, l_list.head);
+		l_list.traverse();
+		l_list.head = l_list.insertAtFront(5);
 		System.out.println("Linkedlist after inserting element at front");
-		l_list.traverse(l_list.head);
+		l_list.traverse();
 
 		System.out.println("Linkedlist before inserting an element after node");
-		l_list.traverse(l_list.head);
+		l_list.traverse();
 		l_list.insertAfterNode(40, second);
 		System.out.println("Linkedlist after inserting an element after node");
-		l_list.traverse(l_list.head);
+		l_list.traverse();
 		
 		System.out.println("Linkedlist before inserting an element at the end");
-		l_list.traverse(l_list.head);
-		l_list.insertAtEnd(50, l_list.head);
+		l_list.traverse();
+		l_list.insertAtEnd(50);
 		System.out.println("Linkedlist after inserting an element at the end");
-		l_list.traverse(l_list.head);
+		l_list.traverse();
 		
 	}
 
