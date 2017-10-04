@@ -2,8 +2,6 @@ package linkedlist;
 
 import java.util.HashSet;
 
-import linkedlist.RemoveDuplicates.Node;
-
 public class RemoveDuplicatesUnsorted {
 
 	Node head;
